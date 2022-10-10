@@ -8,21 +8,7 @@ import { Car } from './interfaces/car.interface';
 export class CarsService {
 
     private cars: Car[] = [
-        {
-            id: uuid(),
-            brand: 'Ford',
-            model: 'Mustang',
-        },
-        {
-            id: uuid(),
-            brand: 'Chevrolet',
-            model: 'Camaro',
-        },
-        {
-            id: uuid(),
-            brand: 'Dodge',
-            model: 'Charger',
-        },
+        
     ];
 
     //Retorna todos los coches
@@ -77,6 +63,10 @@ export class CarsService {
         const car = this.getCarById(id);
 
         this.cars = this.cars.filter(car => car.id !== id);
+    }
+
+    public fillCarsWithSeedData( cars: Car[]) {
+        this.cars = cars;
     }
 
 }
