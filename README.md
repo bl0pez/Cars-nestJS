@@ -1,73 +1,164 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+  <a href="#" target="blank"><img src="./blopez.svg" width="200" alt="Logo blopez" /></a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# Descripción general
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Proyecto desarrollado en NestJS, es una aplicación backend que permite crear, mostrar, editar y eliminar una marca de vehículo o un vehículo.
 
-## Description
+# Instalación
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
-
-```bash
-$ npm install
+1. Clonar el repositorio
+```
+git clone https://github.com/bl0pez/Cars-nestJS.git
+```
+2. Instalar las dependencias
+```
+npm install
+```
+3. Ejecutar el proyecto
+```
+npm run start
+```
+4. Verificar funcionamiento en el navegador
+```
+http://localhost:3000
+```
+5. Creación de datos de prueba
+```
+http://localhost:3000/seed
 ```
 
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+# Uso
+Obtener Lista de vehículos (
+method: GET 
+)
+```
+  http://localhost:3000/cars
+```
+Ejemplo de respuesta:
+```
+[
+  {
+    "id": "09adb323-5e24-4cf6-8e33-fa640a5175a6",
+    "brand": "Audi",
+    "model": "A4"
+  },
+  {
+    "id": "e0230c6a-ce82-4b92-9e42-d64eead42fb5",
+    "brand": "BMW",
+    "model": "M3"
+  },
+  {
+    "id": "2f7c7d59-2cb6-4d8b-ae85-4eeac40e3edb",
+    "brand": "Mercedes",
+    "model": "C63"
+  }
+]
+```
+Filtrar vehículos por id (
+method: GET 
+)
+```
+http://localhost:3000/cars/:id
+```
+Ejemplo: 
+```
+http://localhost:3000/cars/09adb323-5e24-4cf6-8e33-fa640a5175a6
+```
+```
+{
+  "id": "09adb323-5e24-4cf6-8e33-fa640a5175a6",
+  "brand": "Audi",
+  "model": "A4"
+}
 ```
 
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+Crear un vehículo (
+method: POST 
+)
+```
+http://localhost:3000/cars
+```
+Ejemplo de body:
+```
+{
+  "brand": "Audi",
+  "model": "A4"
+}
 ```
 
-## Support
+Editar un vehículo (
+method: PUT 
+)
+``` 
+http://localhost:3000/cars/:id
+```
+Ejemplo de body:
+```
+{
+  "brand": "Audi",
+  "model": "A4"
+}
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Eliminar un vehículo (
+method: PATCH
+)
+```
+http://localhost:3000/cars/:id
+```
 
-## Stay in touch
+Creación de Marca de vehículo (
+method: POST
+)
+```
+http://localhost:3000/brands
+```
+Ejemplo de body:
+```
+{
+  "name": "Audi"
+}
+```
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Obtener Lista de marcas (
+method: GET
+)
+```
+http://localhost:3000/brands
+```
 
-## License
+Filtrar marcas por id (
+method: GET
+)
+```
+http://localhost:3000/brands/:id
+```
 
-Nest is [MIT licensed](LICENSE).
+Editar una marca (
+method: PATCH
+)
+```
+http://localhost:3000/brands/:id
+```
+Ejemplo de body:
+```
+{
+  "name": "Audi"
+}
+```
+
+Eliminar una marca (
+method: DELETE
+)
+```
+http://localhost:3000/brands/:id
+```
+
+## Ramificaciones
+
+Este proyecto cuenta con dos ramas:
+
+- `master`: Rama principal (vehículo).
+- `brands-crud`: Rama con el proyecto terminado (vehículo y modelo).
