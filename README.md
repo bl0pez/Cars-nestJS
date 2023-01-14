@@ -155,3 +155,10 @@ method: DELETE
 ```
 http://localhost:3000/brands/:id
 ```
+
+## Ramificaciones
+
+Este proyecto cuenta con dos ramas:
+
+- `master`: Rama principal (vehículo).
+- `brands-crud`: Rama con el proyecto terminado (vehículo y modelo)
